@@ -4,7 +4,7 @@
         <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}" style="float:left">
         <div class="media-body">
             <div class="article-metadata">
-                <a class="ms-2" href="#">{{ object.author }}</a>
+                <a class="ms-2" href="{% url 'user-posts' post.author.username %}">{{ object.author }}</a>
                 <small class="text-muted">{{ object.date_posted }}</small>
                 {% if object.author == user %}
                 <div>
@@ -14,6 +14,9 @@
                 {% endif %}
             </div>
             <h2 class="article-title" style="clear: both">{{ object.title }}</h2>
+            {% if object.image.url != "/media/default.jpg" %}
+                <img style="width:100%; height:auto;" class="img-responsive" src="{{ object.image.url }}">
+            {% endif %}
             <p class="article-content" ALIGN="left">{{ object.content }}</p>
         </div>
     </article>
