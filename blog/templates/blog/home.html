@@ -2,15 +2,15 @@
 {% block content %}
     {% for post in posts %}
     <article class="media content-section">
-      <img class="rounded-circle article-img mb-0" src="{{ post.author.profile.image.url }}" style="float:left">
-      <div class="media-body">
-        <div class="article-metadata mb-5">
-          <a class="me-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-          <small class="text-muted">{{ post.date_posted }}</small>
+        <img class="rounded-circle article-img mb-0" src="{{ post.author.profile.image.url }}" style="float:left">
+        <div class="media-body">
+            <div class="article-metadata mb-5">
+                <a class="me-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title mt-5" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
         </div>
-        <h2><a class="article-title mt-5" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-        <p class="article-content">{{ post.content }}</p>
-      </div>
     </article>
     {% endfor %}
     {% if is_paginated %}
