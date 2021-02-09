@@ -3,6 +3,8 @@
 This project is now deployed via linode on a linux VM using Apache
 The site can be reached at www.mowens.blog
 
+Only issue is that the password reset email muight be sent to the spam folder of the requested acount
+
 Blog application using Django
 Currently this application has a secure login/ logout feature
 Profile creation, update, and view
